@@ -1,0 +1,127 @@
+{
+ "_note": "30 句真实职场黑话。句子与其『真实意思』均来自公开整理（见 bench/README.md），不是本仓库作者编写的。",
+ "_warning": "把它们映射到六类分类学是人工作业，那一步有主观性。",
+ "count": 30,
+ "cases": [
+  {
+   "sentence": "这事不急，慢慢来",
+   "source_meaning": "今晚就要看到结果"
+  },
+  {
+   "sentence": "抽空处理一下",
+   "source_meaning": "尽快，最好现在"
+  },
+  {
+   "sentence": "帮忙盯一下",
+   "source_meaning": "烂摊子甩给你，别想甩回来"
+  },
+  {
+   "sentence": "这个任务很有挑战性",
+   "source_meaning": "巨坑、难搞、易背锅、没人接"
+  },
+  {
+   "sentence": "你看着办",
+   "source_meaning": "办砸了你背锅"
+  },
+  {
+   "sentence": "你们研究研究",
+   "source_meaning": "建议不太行，等你们自觉放弃"
+  },
+  {
+   "sentence": "这个事你再想想",
+   "source_meaning": "方案不成熟、不同意"
+  },
+  {
+   "sentence": "原则上同意",
+   "source_meaning": "细节全不满意"
+  },
+  {
+   "sentence": "原则上不行",
+   "source_meaning": "实际上可以，但有代价"
+  },
+  {
+   "sentence": "我会好好考虑下",
+   "source_meaning": "想想怎么拒绝你"
+  },
+  {
+   "sentence": "我尽量吧",
+   "source_meaning": "别指望我"
+  },
+  {
+   "sentence": "你很有潜力",
+   "source_meaning": "现在能力还不行"
+  },
+  {
+   "sentence": "我对事不对人",
+   "source_meaning": "就是针对你"
+  },
+  {
+   "sentence": "这事也不能赖你",
+   "source_meaning": "就是你的错"
+  },
+  {
+   "sentence": "下次就有经验了",
+   "source_meaning": "这次锅你背好"
+  },
+  {
+   "sentence": "找个时间聊聊",
+   "source_meaning": "出事了，准备挨批"
+  },
+  {
+   "sentence": "优化组织结构",
+   "source_meaning": "准备裁员"
+  },
+  {
+   "sentence": "你还年轻，以后机会多的是",
+   "source_meaning": "这次机会轮不到你"
+  },
+  {
+   "sentence": "不会亏待你的",
+   "source_meaning": "先拼命干，奖励再说"
+  },
+  {
+   "sentence": "明年会重点考虑",
+   "source_meaning": "画饼，先拖着"
+  },
+  {
+   "sentence": "年轻人别只看钱",
+   "source_meaning": "低成本榨干你"
+  },
+  {
+   "sentence": "这个岗位很锻炼人",
+   "source_meaning": "事会很多"
+  },
+  {
+   "sentence": "大家还有没有什么补充的",
+   "source_meaning": "客气话，方案已定，别提"
+  },
+  {
+   "sentence": "这只是我个人想法，你们有啥意见尽管提",
+   "source_meaning": "方案已定，反对视为对抗"
+  },
+  {
+   "sentence": "以上几点体会和建议，供大家参考",
+   "source_meaning": "这些要求要落实"
+  },
+  {
+   "sentence": "我们再看看",
+   "source_meaning": "大概率委婉拒绝或备胎"
+  },
+  {
+   "sentence": "后面再联系",
+   "source_meaning": "没有时间表，基本是婉拒"
+  },
+  {
+   "sentence": "有消息我们会通知你",
+   "source_meaning": "不通知你，就是没过"
+  },
+  {
+   "sentence": "你的逻辑很好，但可能不太适合我们团队",
+   "source_meaning": "婉拒，归因于团队契合度"
+  },
+  {
+   "sentence": "按公司规章制度来",
+   "source_meaning": "公司不允许，不关我事"
+  }
+ ]
+}

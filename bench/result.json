@@ -1,0 +1,550 @@
+{
+ "meta": {
+  "ran_at": "2026-09-28 17:49",
+  "model": "jev-latest",
+  "n": 30,
+  "elapsed_s": 38
+ },
+ "rows": [
+  {
+   "sentence": "这事不急，慢慢来",
+   "source_meaning": "今晚就要看到结果",
+   "read_as": "deferred",
+   "confidence": 0.79,
+   "probabilities": {
+    "declined": 0.01,
+    "literal": 0.04,
+    "downplayed": 0.08,
+    "deferred": 0.82,
+    "pushed_back": 0.02,
+    "undecided": 0.03
+   },
+   "opposite": 0.19,
+   "boilerplate": 3.96,
+   "has_commitment": 0.05,
+   "needs_me_to_act": 0.33
+  },
+  {
+   "sentence": "抽空处理一下",
+   "source_meaning": "尽快，最好现在",
+   "read_as": "deferred",
+   "confidence": 0.56,
+   "probabilities": {
+    "literal": 0.13,
+    "undecided": 0.01,
+    "downplayed": 0.11,
+    "declined": 0.02,
+    "pushed_back": 0.1,
+    "deferred": 0.63
+   },
+   "opposite": 0.14,
+   "boilerplate": 3.87,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.77
+  },
+  {
+   "sentence": "帮忙盯一下",
+   "source_meaning": "烂摊子甩给你，别想甩回来",
+   "read_as": "literal",
+   "confidence": 0.42,
+   "probabilities": {
+    "undecided": 0.02,
+    "declined": 0.01,
+    "pushed_back": 0.29,
+    "deferred": 0.09,
+    "literal": 0.52,
+    "downplayed": 0.07
+   },
+   "opposite": 0.11,
+   "boilerplate": 3.79,
+   "has_commitment": 0.08,
+   "needs_me_to_act": 0.74
+  },
+  {
+   "sentence": "这个任务很有挑战性",
+   "source_meaning": "巨坑、难搞、易背锅、没人接",
+   "read_as": "literal",
+   "confidence": 0.39,
+   "probabilities": {
+    "deferred": 0.01,
+    "literal": 0.5,
+    "downplayed": 0.28,
+    "declined": 0.05,
+    "pushed_back": 0.14,
+    "undecided": 0.02
+   },
+   "opposite": 0.16,
+   "boilerplate": 3.94,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.17
+  },
+  {
+   "sentence": "你看着办",
+   "source_meaning": "办砸了你背锅",
+   "read_as": "pushed_back",
+   "confidence": 1.0,
+   "probabilities": {
+    "deferred": 0.0,
+    "downplayed": 0.0,
+    "undecided": 0.0,
+    "literal": 0.0,
+    "pushed_back": 1.0,
+    "declined": 0.0
+   },
+   "opposite": 0.2,
+   "boilerplate": 3.98,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.88
+  },
+  {
+   "sentence": "你们研究研究",
+   "source_meaning": "建议不太行，等你们自觉放弃",
+   "read_as": "pushed_back",
+   "confidence": 0.23,
+   "probabilities": {
+    "downplayed": 0.0,
+    "pushed_back": 0.36,
+    "declined": 0.01,
+    "deferred": 0.34,
+    "undecided": 0.27,
+    "literal": 0.02
+   },
+   "opposite": 0.18,
+   "boilerplate": 3.95,
+   "has_commitment": 0.04,
+   "needs_me_to_act": 0.76
+  },
+  {
+   "sentence": "这个事你再想想",
+   "source_meaning": "方案不成熟、不同意",
+   "read_as": "deferred",
+   "confidence": 0.53,
+   "probabilities": {
+    "declined": 0.02,
+    "downplayed": 0.0,
+    "literal": 0.01,
+    "pushed_back": 0.14,
+    "deferred": 0.62,
+    "undecided": 0.21
+   },
+   "opposite": 0.19,
+   "boilerplate": 3.71,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.82
+  },
+  {
+   "sentence": "原则上同意",
+   "source_meaning": "细节全不满意",
+   "read_as": "undecided",
+   "confidence": 0.42,
+   "probabilities": {
+    "deferred": 0.14,
+    "literal": 0.27,
+    "downplayed": 0.0,
+    "declined": 0.05,
+    "pushed_back": 0.02,
+    "undecided": 0.52
+   },
+   "opposite": 0.13,
+   "boilerplate": 3.87,
+   "has_commitment": 0.1,
+   "needs_me_to_act": 0.33
+  },
+  {
+   "sentence": "原则上不行",
+   "source_meaning": "实际上可以，但有代价",
+   "read_as": "declined",
+   "confidence": 0.81,
+   "probabilities": {
+    "downplayed": 0.0,
+    "literal": 0.09,
+    "declined": 0.84,
+    "pushed_back": 0.0,
+    "undecided": 0.03,
+    "deferred": 0.04
+   },
+   "opposite": 0.15,
+   "boilerplate": 3.85,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.19
+  },
+  {
+   "sentence": "我会好好考虑下",
+   "source_meaning": "想想怎么拒绝你",
+   "read_as": "deferred",
+   "confidence": 0.8,
+   "probabilities": {
+    "deferred": 0.84,
+    "undecided": 0.13,
+    "downplayed": 0.0,
+    "literal": 0.0,
+    "pushed_back": 0.0,
+    "declined": 0.03
+   },
+   "opposite": 0.19,
+   "boilerplate": 3.94,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.4
+  },
+  {
+   "sentence": "我尽量吧",
+   "source_meaning": "别指望我",
+   "read_as": "deferred",
+   "confidence": 0.54,
+   "probabilities": {
+    "undecided": 0.13,
+    "literal": 0.02,
+    "downplayed": 0.02,
+    "pushed_back": 0.01,
+    "declined": 0.21,
+    "deferred": 0.61
+   },
+   "opposite": 0.21,
+   "boilerplate": 3.93,
+   "has_commitment": 0.07,
+   "needs_me_to_act": 0.3
+  },
+  {
+   "sentence": "你很有潜力",
+   "source_meaning": "现在能力还不行",
+   "read_as": "literal",
+   "confidence": 0.18,
+   "probabilities": {
+    "deferred": 0.26,
+    "downplayed": 0.04,
+    "undecided": 0.09,
+    "literal": 0.31,
+    "pushed_back": 0.02,
+    "declined": 0.28
+   },
+   "opposite": 0.2,
+   "boilerplate": 3.98,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.48
+  },
+  {
+   "sentence": "我对事不对人",
+   "source_meaning": "就是针对你",
+   "read_as": "literal",
+   "confidence": 0.36,
+   "probabilities": {
+    "undecided": 0.01,
+    "pushed_back": 0.08,
+    "declined": 0.17,
+    "literal": 0.47,
+    "deferred": 0.01,
+    "downplayed": 0.26
+   },
+   "opposite": 0.25,
+   "boilerplate": 3.96,
+   "has_commitment": 0.09,
+   "needs_me_to_act": 0.29
+  },
+  {
+   "sentence": "这事也不能赖你",
+   "source_meaning": "就是你的错",
+   "read_as": "pushed_back",
+   "confidence": 0.25,
+   "probabilities": {
+    "downplayed": 0.17,
+    "deferred": 0.03,
+    "declined": 0.08,
+    "undecided": 0.01,
+    "literal": 0.32,
+    "pushed_back": 0.39
+   },
+   "opposite": 0.26,
+   "boilerplate": 3.3,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.13
+  },
+  {
+   "sentence": "下次就有经验了",
+   "source_meaning": "这次锅你背好",
+   "read_as": "deferred",
+   "confidence": 0.18,
+   "probabilities": {
+    "downplayed": 0.27,
+    "deferred": 0.31,
+    "literal": 0.22,
+    "undecided": 0.01,
+    "declined": 0.13,
+    "pushed_back": 0.06
+   },
+   "opposite": 0.22,
+   "boilerplate": 3.95,
+   "has_commitment": 0.08,
+   "needs_me_to_act": 0.3
+  },
+  {
+   "sentence": "找个时间聊聊",
+   "source_meaning": "出事了，准备挨批",
+   "read_as": "undecided",
+   "confidence": 0.35,
+   "probabilities": {
+    "pushed_back": 0.02,
+    "literal": 0.14,
+    "declined": 0.01,
+    "undecided": 0.46,
+    "downplayed": 0.0,
+    "deferred": 0.37
+   },
+   "opposite": 0.08,
+   "boilerplate": 3.97,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.7
+  },
+  {
+   "sentence": "优化组织结构",
+   "source_meaning": "准备裁员",
+   "read_as": "literal",
+   "confidence": 0.26,
+   "probabilities": {
+    "declined": 0.01,
+    "literal": 0.38,
+    "downplayed": 0.07,
+    "deferred": 0.15,
+    "pushed_back": 0.15,
+    "undecided": 0.24
+   },
+   "opposite": 0.1,
+   "boilerplate": 3.96,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.51
+  },
+  {
+   "sentence": "你还年轻，以后机会多的是",
+   "source_meaning": "这次机会轮不到你",
+   "read_as": "declined",
+   "confidence": 0.75,
+   "probabilities": {
+    "literal": 0.01,
+    "pushed_back": 0.01,
+    "deferred": 0.15,
+    "declined": 0.79,
+    "downplayed": 0.04,
+    "undecided": 0.0
+   },
+   "opposite": 0.19,
+   "boilerplate": 3.97,
+   "has_commitment": 0.05,
+   "needs_me_to_act": 0.43
+  },
+  {
+   "sentence": "不会亏待你的",
+   "source_meaning": "先拼命干，奖励再说",
+   "read_as": "deferred",
+   "confidence": 0.47,
+   "probabilities": {
+    "literal": 0.19,
+    "declined": 0.04,
+    "downplayed": 0.07,
+    "deferred": 0.56,
+    "undecided": 0.13,
+    "pushed_back": 0.01
+   },
+   "opposite": 0.2,
+   "boilerplate": 3.91,
+   "has_commitment": 0.08,
+   "needs_me_to_act": 0.23
+  },
+  {
+   "sentence": "明年会重点考虑",
+   "source_meaning": "画饼，先拖着",
+   "read_as": "deferred",
+   "confidence": 0.85,
+   "probabilities": {
+    "undecided": 0.03,
+    "literal": 0.01,
+    "downplayed": 0.0,
+    "deferred": 0.87,
+    "declined": 0.08,
+    "pushed_back": 0.01
+   },
+   "opposite": 0.23,
+   "boilerplate": 3.79,
+   "has_commitment": 0.09,
+   "needs_me_to_act": 0.3
+  },
+  {
+   "sentence": "年轻人别只看钱",
+   "source_meaning": "低成本榨干你",
+   "read_as": "declined",
+   "confidence": 0.29,
+   "probabilities": {
+    "undecided": 0.01,
+    "declined": 0.41,
+    "pushed_back": 0.09,
+    "deferred": 0.05,
+    "literal": 0.26,
+    "downplayed": 0.18
+   },
+   "opposite": 0.19,
+   "boilerplate": 3.92,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.27
+  },
+  {
+   "sentence": "这个岗位很锻炼人",
+   "source_meaning": "事会很多",
+   "read_as": "downplayed",
+   "confidence": 0.67,
+   "probabilities": {
+    "literal": 0.21,
+    "downplayed": 0.72,
+    "declined": 0.03,
+    "undecided": 0.0,
+    "pushed_back": 0.03,
+    "deferred": 0.01
+   },
+   "opposite": 0.29,
+   "boilerplate": 3.98,
+   "has_commitment": 0.05,
+   "needs_me_to_act": 0.17
+  },
+  {
+   "sentence": "大家还有没有什么补充的",
+   "source_meaning": "客气话，方案已定，别提",
+   "read_as": "undecided",
+   "confidence": 0.44,
+   "probabilities": {
+    "declined": 0.0,
+    "literal": 0.44,
+    "downplayed": 0.0,
+    "deferred": 0.01,
+    "pushed_back": 0.02,
+    "undecided": 0.53
+   },
+   "opposite": 0.09,
+   "boilerplate": 3.9,
+   "has_commitment": 0.02,
+   "needs_me_to_act": 0.45
+  },
+  {
+   "sentence": "这只是我个人想法，你们有啥意见尽管提",
+   "source_meaning": "方案已定，反对视为对抗",
+   "read_as": "undecided",
+   "confidence": 0.48,
+   "probabilities": {
+    "undecided": 0.56,
+    "pushed_back": 0.17,
+    "downplayed": 0.04,
+    "deferred": 0.01,
+    "literal": 0.21,
+    "declined": 0.01
+   },
+   "opposite": 0.14,
+   "boilerplate": 3.95,
+   "has_commitment": 0.07,
+   "needs_me_to_act": 0.67
+  },
+  {
+   "sentence": "以上几点体会和建议，供大家参考",
+   "source_meaning": "这些要求要落实",
+   "read_as": "literal",
+   "confidence": 0.5,
+   "probabilities": {
+    "literal": 0.58,
+    "deferred": 0.15,
+    "undecided": 0.05,
+    "downplayed": 0.01,
+    "declined": 0.03,
+    "pushed_back": 0.18
+   },
+   "opposite": 0.06,
+   "boilerplate": 3.97,
+   "has_commitment": 0.03,
+   "needs_me_to_act": 0.31
+  },
+  {
+   "sentence": "我们再看看",
+   "source_meaning": "大概率委婉拒绝或备胎",
+   "read_as": "deferred",
+   "confidence": 0.98,
+   "probabilities": {
+    "literal": 0.0,
+    "deferred": 0.99,
+    "undecided": 0.01,
+    "pushed_back": 0.0,
+    "declined": 0.0,
+    "downplayed": 0.0
+   },
+   "opposite": 0.17,
+   "boilerplate": 3.94,
+   "has_commitment": 0.06,
+   "needs_me_to_act": 0.44
+  },
+  {
+   "sentence": "后面再联系",
+   "source_meaning": "没有时间表，基本是婉拒",
+   "read_as": "deferred",
+   "confidence": 0.97,
+   "probabilities": {
+    "downplayed": 0.0,
+    "literal": 0.0,
+    "declined": 0.02,
+    "pushed_back": 0.0,
+    "undecided": 0.0,
+    "deferred": 0.98
+   },
+   "opposite": 0.18,
+   "boilerplate": 3.99,
+   "has_commitment": 0.08,
+   "needs_me_to_act": 0.44
+  },
+  {
+   "sentence": "有消息我们会通知你",
+   "source_meaning": "不通知你，就是没过",
+   "read_as": "deferred",
+   "confidence": 0.8,
+   "probabilities": {
+    "deferred": 0.83,
+    "literal": 0.02,
+    "undecided": 0.12,
+    "declined": 0.03,
+    "downplayed": 0.0,
+    "pushed_back": 0.0
+   },
+   "opposite": 0.12,
+   "boilerplate": 3.96,
+   "has_commitment": 0.14,
+   "needs_me_to_act": 0.16
+  },
+  {
+   "sentence": "你的逻辑很好，但可能不太适合我们团队",
+   "source_meaning": "婉拒，归因于团队契合度",
+   "read_as": "declined",
+   "confidence": 0.99,
+   "probabilities": {
+    "undecided": 0.0,
+    "downplayed": 0.0,
+    "literal": 0.0,
+    "deferred": 0.01,
+    "declined": 0.99,
+    "pushed_back": 0.0
+   },
+   "opposite": 0.27,
+   "boilerplate": 3.52,
+   "has_commitment": 0.04,
+   "needs_me_to_act": 0.37
+  },
+  {
+   "sentence": "按公司规章制度来",
+   "source_meaning": "公司不允许，不关我事",
+   "read_as": "literal",
+   "confidence": 0.2,
+   "probabilities": {
+    "literal": 0.33,
+    "declined": 0.15,
+    "downplayed": 0.01,
+    "deferred": 0.16,
+    "undecided": 0.02,
+    "pushed_back": 0.33
+   },
+   "opposite": 0.14,
+   "boilerplate": 3.97,
+   "has_commitment": 0.08,
+   "needs_me_to_act": 0.35
+  }
+ ]
+}

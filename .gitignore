@@ -1,0 +1,19 @@
+# 密钥绝不进仓库
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# 生成物
+cards*/
+*.png
+result_*.json
+
+# 系统
+.DS_Store

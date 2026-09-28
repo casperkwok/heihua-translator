@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>黑话翻译 · 这句工作消息到底什么意思</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --paper:#FAF7F2; --card:#fff; --ink:#1C1A17; --mute:#8A8578; --line:#E7E1D6;
+  --blue:#2E6FD8; --blueL:#EDF3FD; --rust:#C8553D; --rustL:#FBEDE8;
+  --green:#2E8B57; --greenL:#EAF5EE; --gold:#B98A1C; --goldL:#FBF3DC;
+}
+body{
+  background:var(--paper); color:var(--ink); min-height:100dvh;
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  line-height:1.55; padding:0 0 60px;
+}
+.wrap{max-width:620px;margin:0 auto;padding:26px 18px 0}
+header{padding:14px 0 20px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+h1{font-size:26px;font-weight:900;letter-spacing:-.4px}
+header .sub{font-size:13px;color:var(--mute);margin-top:3px}
+.score{font-size:13px;color:var(--mute);white-space:nowrap;font-variant-numeric:tabular-nums}
+.score b{color:var(--blue);font-size:17px}
+
+.step{margin-top:26px}
+.lbl{font-size:12px;letter-spacing:2.5px;color:var(--mute);font-weight:700;margin-bottom:9px}
+textarea{
+  width:100%;min-height:96px;padding:15px 16px;font:inherit;font-size:17px;line-height:1.55;
+  border:1.5px solid var(--line);border-radius:11px;background:var(--card);color:var(--ink);resize:vertical;
+}
+textarea:focus{outline:none;border-color:var(--blue)}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+.ex button{
+  font:inherit;font-size:13.5px;padding:7px 13px;border-radius:20px;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--line);color:var(--mute);
+}
+.ex button:hover{border-color:var(--blue);color:var(--blue)}
+.ctx{margin-top:11px}
+.ctx summary{font-size:13px;color:var(--mute);cursor:pointer;list-style:none}
+.ctx summary::-webkit-details-marker{display:none}
+.ctx summary::before{content:'▸ ';font-size:11px}
+.ctx[open] summary::before{content:'▾ '}
+.ctx textarea{min-height:56px;font-size:15px;margin-top:9px}
+
+.btn{
+  width:100%;margin-top:20px;padding:16px;font:inherit;font-size:17px;font-weight:800;
+  background:var(--ink);color:#fff;border:none;border-radius:11px;cursor:pointer;
+}
+.btn:hover{opacity:.9} .btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);font-weight:700}
+
+.quote{
+  background:var(--card);border-left:5px solid var(--ink);border-radius:0 11px 11px 0;
+  padding:16px 18px;font-size:18px;font-weight:700;line-height:1.5;
+}
+.quote .c{display:block;font-size:14px;font-weight:400;color:var(--mute);margin-top:7px}
+
+.guesses{display:grid;gap:9px;margin-top:16px}
+.guesses button{
+  font:inherit;font-size:16px;font-weight:600;padding:15px;border-radius:11px;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--line);color:var(--ink);text-align:left;
+}
+.guesses button:hover{border-color:var(--blue);background:var(--blueL)}
+
+.verdict{
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:22px;margin-top:16px;
+}
+.vhead{font-size:12px;letter-spacing:2.5px;color:var(--mute);font-weight:700}
+.vbig{font-size:29px;font-weight:900;line-height:1.25;margin-top:7px}
+.vbig.hit{color:var(--green)} .vbig.miss{color:var(--rust)}
+
+.conf{margin-top:18px}
+.conf .t{display:flex;justify-content:space-between;font-size:13.5px;color:var(--mute);margin-bottom:6px}
+.conf .t b{color:var(--ink);font-size:15px}
+.bar{height:12px;background:#EFEAE0;border-radius:6px;overflow:hidden}
+.bar>div{height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.tier{font-size:13.5px;font-weight:700;margin-top:8px;display:inline-block;padding:3px 11px;border-radius:20px}
+.tier.t1{background:var(--greenL);color:var(--green)}
+.tier.t2{background:var(--goldL);color:var(--gold)}
+.tier.t3{background:var(--rustL);color:var(--rust)}
+
+.dims{margin-top:20px;border-top:1.5px solid var(--line);padding-top:16px}
+.dim{display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:15px;border-bottom:1px solid var(--line)}
+.dim:last-child{border-bottom:none}
+.dim .k{color:var(--mute)}
+.dim .v{font-weight:700;font-variant-numeric:tabular-nums}
+.dim .v.no{color:var(--green)} .dim .v.yes{color:var(--rust)}
+
+.result-line{
+  margin-top:18px;padding:14px 18px;border-radius:11px;font-size:16px;font-weight:700;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.result-line.hit{background:var(--greenL);color:var(--green)}
+.result-line.miss{background:var(--rustL);color:var(--rust)}
+
+.err{margin-top:16px;padding:14px 16px;background:var(--rustL);color:var(--rust);border-radius:11px;font-size:15px}
+.spin{margin-top:22px;text-align:center;color:var(--mute);font-size:15px}
+.spin .dots::after{content:'·';animation:d 1.2s steps(1,end) infinite}
+@keyframes d{0%{content:'·'}33%{content:'··'}66%{content:'···'}}
+footer{margin-top:46px;padding-top:18px;border-top:1.5px solid var(--line);font-size:12.5px;color:var(--mute);line-height:1.7}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>黑话翻译</h1>
+      <div class="sub">贴一句听不懂的工作消息，先猜，再看 AI 怎么读</div>
+    </div>
+    <div class="score" id="score"></div>
+  </header>
+
+  <!-- ① 输入 -->
+  <section class="step" id="s1">
+    <div class="lbl">① 贴一句话</div>
+    <textarea id="msg" placeholder="例：这个我们后面再讨论"></textarea>
+    <div class="ex" id="ex"></div>
+    <details class="ctx">
+      <summary>加上文（可选，会准一些）</summary>
+      <textarea id="ctx" placeholder="上一句是什么"></textarea>
+    </details>
+    <button class="btn" id="toGuess">下一步：先猜一下 →</button>
+  </section>
+
+  <!-- ② 猜 -->
+  <section class="step" id="s2" hidden>
+    <div class="lbl">② 你觉得它实际是什么意思？</div>
+    <div class="quote" id="q2"></div>
+    <div class="guesses" id="guesses"></div>
+  </section>
+
+  <!-- ③ 揭晓 -->
+  <section class="step" id="s3" hidden>
+    <div class="quote" id="q3"></div>
+    <div id="out"></div>
+  </section>
+
+  <footer>
+    <b>它为什么给「确定度」</b><br>
+    它不生成文字，只做判断，并且会告诉你它有多确定——不确定时它会说「我也读不懂」。<br>
+    ⚠️ 单句判断，仅供参考。中文的言外之意本就依赖语境，别拿它当准绳。
+  </footer>
+</div>
+
+<script>
+const LABELS = {
+  literal:     '就是字面意思',
+  undecided:   '还没定，要再讨论',
+  deferred:    '含糊其辞，不会推进',
+  declined:    '在委婉拒绝',
+  pushed_back: '把决定推回给你',
+  downplayed:  '在轻描淡写，没那么简单',
+};
+const EXAMPLES = [
+  '这个我们后面再讨论',
+  '我们先对齐一下',
+  '你自己看着办',
+  '这个需求很简单，你半天能搞定吧',
+  '我建议你再想想',
+  '没问题，应该很快',
+];
+
+const $ = s => document.querySelector(s);
+let msg = '', guess = null;
+let stat = JSON.parse(localStorage.getItem('subtext') || '{"c":0,"n":0}');
+
+function paintScore() {
+  const el = $('#score');
+  el.innerHTML = stat.n ? `你猜中 <b>${stat.c}</b> / ${stat.n}` : '';
+}
+paintScore();
+
+EXAMPLES.forEach(t => {
+  const b = document.createElement('button');
+  b.textContent = t;
+  b.onclick = () => { $('#msg').value = t; };
+  $('#ex').appendChild(b);
+});
+
+$('#toGuess').onclick = () => {
+  msg = $('#msg').value.trim();
+  if (!msg) { $('#msg').focus(); return; }
+  $('#q2').innerHTML = esc(msg);
+  const g = $('#guesses'); g.innerHTML = '';
+  Object.entries(LABELS).forEach(([k, v]) => {
+    const b = document.createElement('button');
+    b.textContent = v;
+    b.onclick = () => { guess = k; go(); };
+    g.appendChild(b);
+  });
+  $('#s1').hidden = true; $('#s2').hidden = false; $('#s3').hidden = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+async function go() {
+  $('#s2').hidden = true; $('#s3').hidden = false;
+  const q = $('#q3');
+  q.innerHTML = esc(msg);
+  const ctx = $('#ctx').value.trim();
+  if (ctx) q.innerHTML += `<span class="c">上文：${esc(ctx)}</span>`;
+  $('#out').innerHTML = `<div class="spin">它在读这句话<span class="dots"></span></div>`;
+
+  let r;
+  try {
+    const res = await fetch('/api/analyze', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, context: ctx }),
+    });
+    r = await res.json();
+    if (!res.ok) throw new Error(r.error || '出错了');
+  } catch (e) {
+    $('#out').innerHTML = `<div class="err">${esc(e.message)}</div>
+      <button class="btn ghost" onclick="location.reload()">重来</button>`;
+    return;
+  }
+  render(r);
+}
+
+function render(r) {
+  const m = r.meaning, c = m.confidence;
+  const hit = m.choice === guess;
+  stat.n++; if (hit) stat.c++;
+  localStorage.setItem('subtext', JSON.stringify(stat));
+  paintScore();
+
+  const tier = c >= .85 ? ['t1', '斩钉截铁']
+             : c >= .55 ? ['t2', '它也是猜的']
+             : ['t3', '这句它也读不懂'];
+  const color = hit ? 'var(--green)' : 'var(--rust)';
+
+  const bp = Math.round(r.boilerplate.score);
+  const legend = r.boilerplate.legend || {};
+  const bptxt = legend[String(bp)] || `第 ${bp} 档`;
+
+  $('#out').innerHTML = `
+    <div class="verdict">
+      <div class="vhead">AI 读作</div>
+      <div class="vbig ${hit ? 'hit' : 'miss'}">${esc(LABELS[m.choice] || m.choice)}</div>
+
+      <div class="conf">
+        <div class="t"><span>它有多确定</span><b>${Math.round(c * 100)}%</b></div>
+        <div class="bar"><div style="width:${(c * 100).toFixed(0)}%;background:${color}"></div></div>
+        <span class="tier ${tier[0]}">${tier[1]}</span>
+      </div>
+
+      <div class="dims">
+        <div class="dim"><span class="k">套话浓度</span><span class="v">${esc(bptxt)}</span></div>
+        <div class="dim"><span class="k">有具体承诺吗</span><span class="v ${r.has_commitment.noul >= .5 ? 'yes' : 'no'}">${verdict(r.has_commitment.noul)} (${r.has_commitment.noul.toFixed(2)})</span></div>
+        <div class="dim"><span class="k">在回避或转移吗</span><span class="v ${r.is_deflecting.noul >= .5 ? 'yes' : 'no'}">${verdict(r.is_deflecting.noul)} (${r.is_deflecting.noul.toFixed(2)})</span></div>
+        <div class="dim"><span class="k">下一步在你手上吗</span><span class="v ${r.needs_me_to_act.noul >= .5 ? 'yes' : 'no'}">${verdict(r.needs_me_to_act.noul)} (${r.needs_me_to_act.noul.toFixed(2)})</span></div>
+      </div>
+    </div>
+
+    <div class="result-line ${hit ? 'hit' : 'miss'}">
+      <span>${hit ? '✅ 你猜对了' : '❌ 你猜的是「' + esc(LABELS[guess]) + '」'}</span>
+      <span>累计 ${stat.c} / ${stat.n}</span>
+    </div>
+
+    <button class="btn" onclick="again()">再测一句</button>
+    <div style="text-align:center;margin-top:14px;font-size:12.5px;color:var(--mute)">
+      模型 ${esc(r.model)} · ${r.usage.input_tokens || '?'} 输入 token
+    </div>`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function verdict(p) { return p >= .5 ? '是' : '否'; }
+function esc(s) { return String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch])); }
+function again() {
+  $('#msg').value = ''; $('#ctx').value = ''; guess = null;
+  $('#s1').hidden = false; $('#s2').hidden = true; $('#s3').hidden = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  $('#msg').focus();
+}
+$('#msg').addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') $('#toGuess').click();
+});
+</script>
+</body>
+</html>
