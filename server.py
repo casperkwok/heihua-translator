@@ -15,10 +15,11 @@ import json
 import os
 import subprocess
 import sys
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+WEB = ROOT / "web" if (ROOT / "web").is_dir() else ROOT
 URL = "https://api.typesafe.ai/v1/systemone"
 MODEL = "jev-latest"
 
@@ -109,7 +110,7 @@ def ask_jev(message: str, context: str = ""):
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
-        super().__init__(*a, directory=str(ROOT), **kw)
+        super().__init__(*a, directory=str(WEB), **kw)
 
     def log_message(self, fmt, *args):
         sys.stderr.write("  %s\n" % (fmt % args))
@@ -144,4 +145,4 @@ if __name__ == "__main__":
         print("⚠️  没有 TYPESAFE_API_KEY —— 页面能打开，但判断会失败。")
         print("   先跑：set -a; . ~/.config/subtext.env; set +a")
     print(f"\n  ▸ http://127.0.0.1:{port}\n")
-    HTTPServer(("127.0.0.1", port), Handler).serve_forever()
+    ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
