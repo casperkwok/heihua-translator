@@ -5,208 +5,192 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>职场黑话翻译器</title>
 <style>
+/* 设计语言与小红书卡片完全一致：暖白纸底 / 墨黑 / 蓝+锈红 / 左框色块 / 白底表格 */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-
 :root{
-  --paper:#FBFAF6;
-  --ink:#16150F;
-  --ink2:#4A4740;
-  --mute:#8D887C;
-  --rule:#D6D0C2;
-  --rule-soft:#E8E4DA;
-  --red:#B3261E;      /* 批注红 */
-  --red-soft:#F3E4E1;
-  --seal:#9A2A22;
+  --paper:#FAF7F2; --ink:#1C1A17; --blue:#2E6FD8; --blueL:#E8F0FC;
+  --rust:#C8553D; --rustL:#FBEDE8; --mute:#8A8578; --line:#E0D9CC;
+  --gold:#B98A1C; --goldL:#FBF3DC; --green:#2E8B57; --greenL:#EAF5EE;
 }
-
-html{-webkit-text-size-adjust:100%}
 body{
-  background:var(--paper); color:var(--ink);
-  min-height:100dvh; padding:0 0 72px;
-  font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
-  font-size:16px; line-height:1.6;
-  font-feature-settings:"tnum" 1;
-  -webkit-font-smoothing:antialiased;
+  background:var(--paper); color:var(--ink); min-height:100dvh; padding:0 0 56px;
+  font-family:'Source Han Sans CN','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
 }
-/* 纸张质感：极淡的横向纹理，不是渐变 */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(22,21,15,.018) 27px 28px);
-}
-.wrap{max-width:640px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.wrap{max-width:660px;margin:0 auto;padding:0 20px}
 
-/* 衬线：只给标题和大判定用 */
-.serif{font-family:'Songti SC','STSong','SimSun',Georgia,'Times New Roman',serif}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+/* 抬头 —— 与卡片 kick 同款 */
+.kick{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:2px solid var(--ink);padding:28px 0 10px}
+.kick .s{font-size:19px;font-weight:800;letter-spacing:.04em}
+.kick .s span{color:var(--blue)}
+.kick .no{font-size:14px;color:var(--mute);letter-spacing:.06em;white-space:nowrap}
+.kick .no b{color:var(--blue);font-size:20px;font-weight:800}
 
-/* ── 抬头 ── */
-header{padding:34px 0 16px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-.brand{font-size:22px;font-weight:700;letter-spacing:.06em}
-.brand span{color:var(--red)}
-.tagline{font-size:12px;color:var(--mute);letter-spacing:.16em;margin-top:5px}
-.tally{font-size:12px;color:var(--mute);letter-spacing:.06em;white-space:nowrap;padding-bottom:3px}
-.tally b{color:var(--ink);font-size:15px}
-hr.rule{border:0;border-top:2px solid var(--ink);margin:0}
-hr.hair{border:0;border-top:1px solid var(--rule);margin:0}
+h1{font-size:34px;font-weight:900;line-height:1.22;letter-spacing:-.01em}
+h1 .b{color:var(--blue)} h1 .r{color:var(--rust)} h1 .g{color:var(--green)}
+.lead{font-size:16px;line-height:1.65;margin-top:10px}
+.lead .b{font-weight:800}
+.small{font-size:13.5px;color:var(--mute);line-height:1.55}
 
-.step{padding-top:34px}
-.lbl{
-  font-size:11px;letter-spacing:.22em;color:var(--mute);
-  display:flex;align-items:center;gap:10px;margin-bottom:16px;
-}
-.lbl::after{content:'';flex:1;border-top:1px solid var(--rule-soft)}
+.step{padding-top:26px}
+.lbl{font-size:12px;letter-spacing:.18em;color:var(--mute);font-weight:700;margin-bottom:12px}
 
-/* ── 输入 ── */
+/* 卡片容器 —— 白底 + 细线 + 同款圆角 */
+.card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px}
+
 textarea{
-  width:100%;min-height:104px;padding:16px 0;font:inherit;font-size:19px;line-height:1.6;
-  border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  background:transparent;color:var(--ink);resize:vertical;
+  width:100%;min-height:90px;padding:0;font:inherit;font-size:17px;line-height:1.6;
+  border:0;background:transparent;color:var(--ink);resize:vertical;
 }
-textarea::placeholder{color:#B9B3A6}
-textarea:focus{outline:none;border-color:var(--ink)}
-.ex{display:flex;flex-wrap:wrap;gap:0;margin-top:14px;align-items:baseline}
-.ex .k{font-size:11px;letter-spacing:.16em;color:var(--mute);margin-right:12px}
-.ex button{
-  font:inherit;font-size:14px;padding:3px 0;margin-right:16px;cursor:pointer;
-  background:none;border:0;border-bottom:1px dotted var(--rule);color:var(--ink2);
-}
-.ex button:hover{color:var(--red);border-bottom-color:var(--red)}
-details.ctx{margin-top:18px}
-details.ctx summary{font-size:13px;color:var(--mute);cursor:pointer;letter-spacing:.06em}
-details.ctx summary::-webkit-details-marker{display:none}
-details.ctx summary::before{content:'＋ ';color:var(--red)}
-details.ctx[open] summary::before{content:'－ '}
-details.ctx textarea{min-height:60px;font-size:15px;margin-top:12px}
+textarea::placeholder{color:#B5AFA2}
+textarea:focus{outline:none}
 
-/* ── 按钮 ── */
+/* 示例 —— 同 .cell 的圆角 */
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ex button{
+  font:inherit;font-size:13.5px;padding:7px 13px;border-radius:7px;cursor:pointer;
+  background:var(--blueL);color:var(--blue);border:0;font-weight:600;
+}
+.ex button:hover{background:var(--blue);color:#fff}
+details.ctx{margin-top:16px}
+details.ctx summary{font-size:13.5px;color:var(--mute);cursor:pointer;list-style:none}
+details.ctx summary::-webkit-details-marker{display:none}
+details.ctx summary::before{content:'＋ ';color:var(--blue);font-weight:800}
+details.ctx[open] summary::before{content:'－ '}
+details.ctx textarea{min-height:54px;font-size:15px;margin-top:10px;padding-top:10px;
+  border-top:1.5px solid var(--line)}
+
+/* 按钮 */
 .go{
-  width:100%;margin-top:30px;padding:17px;font:inherit;font-size:16px;font-weight:700;
-  letter-spacing:.1em;background:var(--ink);color:var(--paper);border:0;border-radius:0;cursor:pointer;
+  width:100%;margin-top:22px;padding:16px;font:inherit;font-size:16px;font-weight:800;
+  border-radius:10px;border:0;cursor:pointer;background:var(--ink);color:#fff;
   transition:background .15s;
 }
-.go:hover{background:var(--red)}
-.go:disabled{background:var(--rule);cursor:default;color:var(--paper)}
-.go.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-.go.ghost:hover{background:var(--ink);color:var(--paper)}
+.go:hover{background:var(--blue)}
+.go.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.go.ghost:hover{background:var(--paper);color:var(--ink)}
 
-/* ── 引文 ── */
-.quote{
-  border-left:2px solid var(--ink);padding:4px 0 4px 20px;
-  font-size:24px;line-height:1.5;font-weight:600;
-}
-.quote .src{display:block;font-size:13px;font-weight:400;color:var(--mute);margin-top:10px;letter-spacing:.04em}
+/* 引文 —— 与卡片 .callout 同款的左框 */
+.quote{border-left:7px solid var(--blue);background:var(--blueL);
+  border-radius:0 10px 10px 0;padding:16px 20px;font-size:19px;font-weight:700;line-height:1.5}
+.quote .src{display:block;font-size:13.5px;font-weight:400;color:var(--mute);margin-top:8px}
 
-/* ── 选项：像试卷的题号行 ── */
-.opts{margin-top:6px}
+/* 选项 */
+.opts{display:flex;flex-direction:column;gap:9px;margin-top:14px}
 .opt{
-  width:100%;display:flex;align-items:baseline;gap:16px;text-align:left;
-  padding:15px 4px;border:0;border-bottom:1px solid var(--rule-soft);background:none;
-  font:inherit;font-size:17px;color:var(--ink);cursor:pointer;transition:padding-left .15s,color .15s;
+  width:100%;display:flex;align-items:center;gap:14px;text-align:left;
+  padding:15px 17px;border-radius:10px;border:1.5px solid var(--line);background:#fff;
+  font:inherit;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer;
+  transition:border-color .12s,background .12s;
 }
-.opt:hover{padding-left:12px;color:var(--red);border-bottom-color:var(--red)}
-.opt .no{font-size:13px;color:var(--mute);min-width:20px;letter-spacing:.06em}
-.opt:hover .no{color:var(--red)}
+.opt:hover{border-color:var(--blue);background:var(--blueL)}
+.opt .no{font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.06em;
+  font-variant-numeric:tabular-nums}
 
-/* ── 判定 ── */
-.verdict{padding-top:30px}
-.mark{font-size:15px;letter-spacing:.14em;font-weight:700;color:var(--mute);margin-bottom:14px}
-.mark.hit{color:var(--red)} .mark.miss{color:var(--mute)}
-.read{font-size:38px;line-height:1.28;font-weight:700;letter-spacing:-.01em}
-.read.hit{color:var(--red)}
+/* 判定 */
+.mark{font-size:15px;font-weight:800;letter-spacing:.06em;margin-bottom:10px}
+.mark.hit{color:var(--green)} .mark.miss{color:var(--rust)}
 
 /* 确定度 */
-.conf{margin-top:30px}
-.conf .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-.conf .top .k{font-size:12px;letter-spacing:.18em;color:var(--mute)}
-.conf .top .v{font-size:30px;font-weight:700}
-.gauge{height:6px;background:var(--rule-soft);position:relative;overflow:hidden}
-.gauge i{position:absolute;inset:0 auto 0 0;background:var(--ink);display:block;width:0;
+.conf{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px;margin-top:18px}
+.conf .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.conf .top .k{font-size:13px;color:var(--mute);font-weight:700;letter-spacing:.06em}
+.conf .top .v{font-size:34px;font-weight:900;font-variant-numeric:tabular-nums}
+.bar{height:16px;background:#EFEAE0;border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;width:0;
   transition:width .9s cubic-bezier(.16,1,.3,1)}
-.gauge i.low{background:var(--red)}
-.tier{display:inline-block;margin-top:12px;font-size:12px;letter-spacing:.14em;
-  padding:4px 10px;border:1px solid currentColor}
-.tier.t1{color:var(--ink)} .tier.t2{color:var(--mute)} .tier.t3{color:var(--red)}
+.tier{display:inline-block;margin-top:13px;font-size:13px;font-weight:800;letter-spacing:.06em;
+  padding:5px 13px;border-radius:20px}
+.tier.t1{background:var(--greenL);color:var(--green)}
+.tier.t2{background:var(--goldL);color:var(--gold)}
+.tier.t3{background:var(--rustL);color:var(--rust)}
 
-/* 维度：像成绩单的行 */
-.dims{margin-top:34px}
-.dim{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:13px 0;border-bottom:1px solid var(--rule-soft);font-size:15px}
-.dim:first-child{border-top:1px solid var(--rule-soft)}
-.dim .k{color:var(--mute)}
-.dim .v{font-weight:600;letter-spacing:.02em}
-.dim .v.yes{color:var(--red)} .dim .v.no{color:var(--ink)}
+/* 维度 —— 与卡片表格同款 */
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15.5px;
+  border-radius:12px;overflow:hidden;margin-top:16px}
+th{background:var(--ink);color:#fff;font-weight:700;padding:12px 16px;text-align:left;font-size:14px}
+td{padding:13px 16px;border-bottom:1.5px solid var(--line)}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--mute)}
+td.v{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+td.v.yes{color:var(--rust)} td.v.no{color:var(--ink)}
 
-/* 落款 */
-.footline{margin-top:30px;padding-top:16px;border-top:2px solid var(--ink);
-  display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:14px}
-.footline .who{color:var(--mute);letter-spacing:.04em}
-.footline .who b{color:var(--ink)}
-.footline .sc{letter-spacing:.06em;color:var(--mute)}
-.footline .sc b{color:var(--ink);font-size:17px}
+/* 结果行 —— 与卡片 .stats 同款 */
+.stats{display:flex;border-top:2px solid var(--ink);margin-top:22px;padding-top:14px}
+.stats>div{flex:1;text-align:center}
+.stats>div+div{border-left:1.5px solid var(--line)}
+.stats .v{font-size:32px;font-weight:900;font-variant-numeric:tabular-nums}
+.stats .v.blue{color:var(--blue)} .stats .v.rust{color:var(--rust)}
+.stats .l{font-size:13px;color:var(--mute);margin-top:2px}
 
-.err{margin-top:24px;padding:16px;border:1px solid var(--red);color:var(--red);font-size:15px}
-.loading{padding:48px 0;text-align:center;color:var(--mute);letter-spacing:.16em;font-size:14px}
-.loading i{display:inline-block;animation:pulse 1.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+/* 色块提示 —— 卡片 .callout 直搬 */
+.callout{border-left:7px solid var(--rust);background:var(--rustL);
+  border-radius:0 10px 10px 0;padding:15px 20px;margin-top:18px;font-size:15.5px;line-height:1.6}
+.callout .t{font-size:12px;font-weight:800;color:var(--rust);letter-spacing:.14em;margin-bottom:5px}
+.callout.blue{border-color:var(--blue);background:var(--blueL)}
+.callout.blue .t{color:var(--blue)}
+.callout.green{border-color:var(--green);background:var(--greenL)}
+.callout.green .t{color:var(--green)}
 
-/* ── 出场：一次编排好的节奏，不是散落的微交互 ── */
+.err{margin-top:18px;border-left:7px solid var(--rust);background:var(--rustL);
+  border-radius:0 10px 10px 0;padding:15px 20px;color:var(--rust);font-size:15px}
+.loading{padding:40px 0;text-align:center;color:var(--mute);font-size:15px;font-weight:700}
+.loading i{display:inline-block;animation:pulse 1.4s ease-in-out infinite;font-style:normal}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* 出场节奏 */
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.seq>*{animation:rise .55s cubic-bezier(.16,1,.3,1) backwards}
+.seq>*{animation:rise .5s cubic-bezier(.16,1,.3,1) backwards}
 .seq>*:nth-child(1){animation-delay:.02s}
-.seq>*:nth-child(2){animation-delay:.14s}
-.seq>*:nth-child(3){animation-delay:.26s}
-.seq>*:nth-child(4){animation-delay:.38s}
-.seq>*:nth-child(5){animation-delay:.5s}
-.seq>*:nth-child(6){animation-delay:.62s}
-@media(prefers-reduced-motion:reduce){.seq>*{animation:none}.gauge i{transition:none}}
+.seq>*:nth-child(2){animation-delay:.12s}
+.seq>*:nth-child(3){animation-delay:.22s}
+.seq>*:nth-child(4){animation-delay:.32s}
+.seq>*:nth-child(5){animation-delay:.42s}
+@media(prefers-reduced-motion:reduce){.seq>*{animation:none}.bar i{transition:none}}
 
-.endnote{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule-soft);
-  font-size:12.5px;color:var(--mute);line-height:1.85}
-.endnote b{color:var(--ink2);font-weight:600}
+.endnote{margin-top:40px;border-top:1.5px solid var(--line);padding-top:16px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <div>
-      <div class="brand serif">职场黑话<span>翻译器</span></div>
-      <div class="tagline">读懂话里有话</div>
-    </div>
-    <div class="tally" id="tally"></div>
-  </header>
-  <hr class="rule">
+  <div class="kick">
+    <span class="s">职场黑话<span>翻译器</span></span>
+    <span class="no" id="tally"></span>
+  </div>
 
   <!-- ① 输入 -->
   <section class="step" id="s1">
-    <div class="lbl">一 · 贴一句</div>
-    <textarea id="msg" placeholder="那句你听完没反应过来的话"></textarea>
-    <div class="ex"><span class="k">试试</span><span id="ex"></span></div>
-    <details class="ctx">
-      <summary>加上文（会准一些）</summary>
-      <textarea id="ctx" placeholder="上一句说了什么"></textarea>
-    </details>
-    <button class="go" id="toGuess">下一步 · 先猜一下</button>
+    <div class="lbl">① 贴一句</div>
+    <div class="card">
+      <textarea id="msg" placeholder="那句你听完没反应过来的话"></textarea>
+      <div class="ex" id="ex"></div>
+      <details class="ctx">
+        <summary>加上文（会准一些）</summary>
+        <textarea id="ctx" placeholder="上一句说了什么"></textarea>
+      </details>
+    </div>
+    <button class="go" id="toGuess">下一步 · 先猜一下 →</button>
   </section>
 
   <!-- ② 猜 -->
   <section class="step" id="s2" hidden>
-    <div class="lbl">二 · 你的判断</div>
-    <div class="quote serif" id="q2"></div>
-    <div style="margin-top:34px" class="lbl">它实际是什么意思</div>
+    <div class="lbl">② 你觉得它实际是什么意思</div>
+    <div class="quote" id="q2"></div>
     <div class="opts" id="opts"></div>
   </section>
 
   <!-- ③ 揭晓 -->
   <section class="step" id="s3" hidden>
-    <div class="lbl">三 · 阅卷</div>
-    <div class="quote serif" id="q3"></div>
+    <div class="lbl">③ 阅卷</div>
+    <div class="quote" id="q3"></div>
     <div id="out"></div>
   </section>
 
-  <div class="endnote">
-    <b>判断由 Jev 完成</b>——它不生成文字，只做判断，并给出 0–1 的确定度。
-    不确定时它会直接说「读不懂」。<br>
+  <div class="endnote small">
+    <b>它为什么给「确定度」</b>——它不生成文字，只做判断，每次返回一个 0–1 的确定度。
+    不确定时它会直接认输：「这句我也读不懂」。<br>
     <b>仅供参考</b>——中文的言外之意依赖语境，单句判断有局限。
   </div>
 </div>
@@ -233,11 +217,11 @@ let msg = '', guess = null;
 let stat = JSON.parse(localStorage.getItem('heihua') || '{"c":0,"n":0}');
 
 function paintTally(){
-  $('#tally').innerHTML = stat.n ? `猜中 <b>${stat.c}</b> / ${stat.n}` : '';
+  $('#tally').innerHTML = stat.n ? `你猜中 <b>${stat.c}</b> / ${stat.n}` : '';
 }
 paintTally();
 
-EXAMPLES.forEach((t, i) => {
+EXAMPLES.forEach(t => {
   const b = document.createElement('button');
   b.textContent = t;
   b.onclick = () => { $('#msg').value = t; $('#msg').focus(); };
@@ -252,7 +236,7 @@ $('#toGuess').onclick = () => {
   Object.entries(LABELS).forEach(([k, v], i) => {
     const b = document.createElement('button');
     b.className = 'opt';
-    b.innerHTML = `<span class="no mono">${String(i + 1).padStart(2, '0')}</span><span>${esc(v)}</span>`;
+    b.innerHTML = `<span class="no">${String(i + 1).padStart(2, '0')}</span><span>${esc(v)}</span>`;
     b.onclick = () => { guess = k; run(); };
     box.appendChild(b);
   });
@@ -266,7 +250,7 @@ async function run(){
   q.innerHTML = esc(msg);
   const ctx = $('#ctx').value.trim();
   if (ctx) q.innerHTML += `<span class="src">上文：${esc(ctx)}</span>`;
-  $('#out').innerHTML = `<div class="loading"><i>正在阅卷</i></div>`;
+  $('#out').innerHTML = `<div class="loading"><i>正在阅卷…</i></div>`;
 
   let r;
   try {
@@ -278,7 +262,7 @@ async function run(){
     if (!res.ok) throw new Error(r.error || '出错了');
   } catch (e) {
     $('#out').innerHTML = `<div class="err">${esc(e.message)}</div>
-      <button class="go ghost" style="margin-top:22px" onclick="location.reload()">重来</button>`;
+      <button class="go ghost" onclick="location.reload()">重来</button>`;
     return;
   }
   render(r);
@@ -291,43 +275,45 @@ function render(r){
   localStorage.setItem('heihua', JSON.stringify(stat));
   paintTally();
 
-  const tier = c >= .85 ? ['t1','斩钉截铁']
-             : c >= .55 ? ['t2','它也是猜的']
-             : ['t3','这句它也读不懂'];
+  const tier = c >= .85 ? ['t1','斩钉截铁','var(--green)']
+             : c >= .55 ? ['t2','它也是猜的','var(--gold)']
+             : ['t3','这句它也读不懂','var(--rust)'];
   const legend = r.boilerplate.legend || {};
   const bp = Math.round(r.boilerplate.score);
   const bpTxt = legend[String(bp)] || `第 ${bp} 档`;
 
   $('#out').innerHTML = `
     <div class="seq">
-      <div class="verdict">
-        <div class="mark ${hit ? 'hit' : 'miss'}">${hit ? '✓ 你猜对了' : '✗ 你猜的是「' + esc(LABELS[guess]) + '」'}</div>
-        <div class="read serif ${hit ? 'hit' : ''}">${esc(LABELS[m.choice] || m.choice)}</div>
+      <div class="callout ${hit ? 'green' : ''}" style="margin-top:18px">
+        <div class="t">${hit ? '✓ 你猜对了' : '✗ 你猜的是「' + esc(LABELS[guess]) + '」'}</div>
+        <h1 class="${hit ? 'g' : 'r'}" style="font-size:30px">${esc(LABELS[m.choice] || m.choice)}</h1>
       </div>
 
       <div class="conf">
-        <div class="top"><span class="k">它有多确定</span><span class="v mono">${Math.round(c*100)}%</span></div>
-        <div class="gauge"><i class="${c < .55 ? 'low' : ''}" data-w="${(c*100).toFixed(0)}"></i></div>
+        <div class="top"><span class="k">它有多确定</span><span class="v" style="color:${tier[2]}">${Math.round(c*100)}%</span></div>
+        <div class="bar"><i data-w="${(c*100).toFixed(0)}" style="background:${tier[2]}"></i></div>
         <span class="tier ${tier[0]}">${tier[1]}</span>
       </div>
 
-      <div class="dims">
-        <div class="dim"><span class="k">套话浓度</span><span class="v">${esc(bpTxt)}</span></div>
-        <div class="dim"><span class="k">有具体承诺吗</span><span class="v ${r.has_commitment.noul >= .5 ? 'yes':'no'} mono">${yesno(r.has_commitment.noul)} ${r.has_commitment.noul.toFixed(2)}</span></div>
-        <div class="dim"><span class="k">在回避或转移吗</span><span class="v ${r.is_deflecting.noul >= .5 ? 'yes':'no'} mono">${yesno(r.is_deflecting.noul)} ${r.is_deflecting.noul.toFixed(2)}</span></div>
-        <div class="dim"><span class="k">下一步在你手上吗</span><span class="v ${r.needs_me_to_act.noul >= .5 ? 'yes':'no'} mono">${yesno(r.needs_me_to_act.noul)} ${r.needs_me_to_act.noul.toFixed(2)}</span></div>
-      </div>
+      <table>
+        <tr><th style="width:52%">分项</th><th style="text-align:right">读数</th></tr>
+        <tr><td class="k">套话浓度</td><td class="v">${esc(bpTxt)}</td></tr>
+        <tr><td class="k">有具体承诺吗</td><td class="v ${r.has_commitment.noul >= .5 ? 'yes':'no'}">${yesno(r.has_commitment.noul)}　${r.has_commitment.noul.toFixed(2)}</td></tr>
+        <tr><td class="k">在回避或转移吗</td><td class="v ${r.is_deflecting.noul >= .5 ? 'yes':'no'}">${yesno(r.is_deflecting.noul)}　${r.is_deflecting.noul.toFixed(2)}</td></tr>
+        <tr><td class="k">下一步在你手上吗</td><td class="v ${r.needs_me_to_act.noul >= .5 ? 'yes':'no'}">${yesno(r.needs_me_to_act.noul)}　${r.needs_me_to_act.noul.toFixed(2)}</td></tr>
+      </table>
 
-      <div class="footline">
-        <span class="who">累计 <b>${stat.c}</b> / ${stat.n}</span>
-        <span class="sc mono">${esc(r.model)}</span>
+      <div class="stats">
+        <div><div class="v blue">${stat.c}</div><div class="l">你猜中</div></div>
+        <div><div class="v">${stat.n}</div><div class="l">共测</div></div>
+        <div><div class="v" style="font-size:18px;padding-top:8px">${esc(r.model)}</div><div class="l">模型</div></div>
       </div>
     </div>
 
-    <button class="go" style="margin-top:34px" onclick="again()">再测一句</button>`;
+    <button class="go" style="margin-top:24px" onclick="again()">再测一句</button>`;
 
   requestAnimationFrame(() => {
-    const g = $('#out .gauge i');
+    const g = $('#out .bar i');
     if (g) requestAnimationFrame(() => { g.style.width = g.dataset.w + '%'; });
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
